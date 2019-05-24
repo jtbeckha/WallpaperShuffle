@@ -1,0 +1,36 @@
+<configuration>
+    <!-- File appender -->
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/data/data/com.jaredbeckham.wallpapershuffle/files/log/wpshuffle.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- Daily rollover -->
+            <fileNamePattern>wpshuffle.%d{yyyy-MM-dd}.log</fileNamePattern>
+
+            <!-- Keep 5 days' worth of history capped at 20MB total size -->
+            <maxHistory>5</maxHistory>
+            <totalSizeCap>20MB</totalSizeCap>
+        </rollingPolicy>
+
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Logcat appender -->
+    <appender name="logcat" class="ch.qos.logback.classic.android.LogcatAppender">
+        <encoder>
+            <pattern>%msg</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Only write INFO (and higher-level) messages to the log file -->
+    <root level="INFO">
+        <appender-ref ref="file" />
+    </root>
+
+    <!-- Write all logs to logcat -->
+    <root level="DEBUG">
+        <appender-ref ref="logcat" />
+    </root>
+</configuration>

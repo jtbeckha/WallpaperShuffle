@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">WallpaperShuffle</string>
+    <string name="select_button">Select Wallpapers</string>
+    <string name="shuffle_now_button">Shuffle Now</string>
+    <string name="shuffle_now_success">Shuffled!</string>
+    <string name="shuffle_now_failure">Shuffle Failed :(</string>
+</resources>
